@@ -5,6 +5,7 @@ export async function loadPhotos (fileList) {
   try { // get photos
     const photos = await getPhotos(fileList)
     console.log(photos)
+    return photos
   } catch (error) { console.log(error) }
 }
 
