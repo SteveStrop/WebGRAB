@@ -1,12 +1,99 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css" />
-</head>
-<body>
-</body>
-</html>
+<!-- Imports photos from specific card (SD or CD) in attached PTP camera to a temporary cache  then gives user option to:
+    1) rename files on import
+    2) choose import folder 
+    temporary cache is flushed on exit-->
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="css/style.css" />
+        <title>Download photos from camera</title>
+    </head>
+    
+    <body>
+    
+        <header>
+            <nav>
+                <a href="menu1">menu 1</a>
+                <a href="menu1">menu 2</a>
+                <a href="menu1">menu 3</a>
+                <a href="menu1">menu 4</a>
+            </nav>
+        </header>
+    
+        <div id="container">
+            <!-- contains 2 columns lhs for source and thumbnails. rhs for destination and import-->
+    
+            <div id="rhs">
+                <!-- holds all content in right hand column -->
+    
+    
+                <div id="destination">
+                    <!--<h6>Destination</h6>-->
+                    <!-- holds radioButtons and button associated with selecting destination for imported photos-->
+                    <div id="radioButtons">
+                    </div>
+                    <div id="addDestination">
+                        <input type="file" class="hidden" id="setDestBtn" />
+                        <button id="addDestinationBtn">Edit List</button>
+                        <!-- button onClick: opens folder select dialog display contents of selected folder in <section id="thumbnails">  -->
+                    </div>
+                </div>
+    
+                <div id="photoImport">
+                    <!--contains rename options and import/quit buttons-->
+                    <div id="renameDiv">
+                        <select id="renameDrop">
+                            <option value="0">Do not rename</option>
+                            <option value="01" selected>Sequence starting 01</option>
+                            <option value="001">Sequence starting 001</option>
+                            <option value="00">Sequence starting 00</option>
+                            <option value="000">Sequence starting 000</option>
+                        </select>
+                        <!-- rename options-->
+                        <p id="renameText"></p>
+                        <!-- rename example text displays (e.g) 01.jpg, original filename or "Example" if none -->
+                    </div>
+                    <div id="importQuit">
+                        <button id="importBtn">Import</button>
+                        <!-- button onClick: moves files from source folder to destination folder-->
+                        <button id="quitBtn">Quit</button>
+                        <!-- button onClick tidies up and quits-->
+                    </div>
+                </div>
+    
+            </div>
+    
+            <div id="lhs">
+                <!-- holds all content in left hand column -->
+    
+                <div id="source">
+                    <!-- holds button and text associated with selecting imported photos-->
+                    <input type="file" class="hidden" id="chooseFileBtn" multiple/>
+                    <button id="selectBtn">Select photos</button>
+                    <!-- button onClick: redirects click to input button. opens folder select dialog display contents of selected folder in <section id="thumbnails">  -->
+                    <p id="sourceText"></p>
+                    <!-- source section text displays path to selected folder or displays "Choose folder for import" if none -->
+                </div>
+    
+                <div id="thumbnails">
+                    <!-- displays all the thumbnails from the folder selected by sourceButton-->
+                </div>
+    
+    
+            </div>
+        </div>
+        <footer>
+            <p id="status">Status:
+                <span id="statusMessage">Click Select photos to start...</span>
+            </p>
+            <div id="progressBar" class="hidden">
+                <div id="bar"></div>
+            </div>
+        </footer>
+        <!-- status update area-->
+    </body>    
+    </html>

@@ -1,3 +1,219 @@
-body{
-    background-color:blue
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    min-height: 90vh;
+    /* for sticky footer */
+    flex-direction: column;
+    background-color: black;
+}
+
+legend {
+    color: #777777;
+    font-size: small;
+}
+
+.hidden {
+    display: none;
+}
+
+.destinationLabel {
+    margin-left: 0.2em;
+}
+
+
+/*for sticky footer*/
+
+header,
+footer {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    /*background-color: blue;*/
+    color: #e6e6e6;
+    background-color: #767676;
+    height: 3em;
+    display: flex;
+    align-items: center;
+}
+
+header {
+    text-align: center;
+    justify-content: center;
+}
+
+nav {
+    width: 60%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+#container {
+    flex: 1;
+    /* flex child properties*/
+    display: flex;
+    flex-direction: row;
+    /* flex parent properties*/
+    width: 90%;
+    margin: auto;
+    background-color: #f0f0f0;
+}
+
+#rhs {
+    order: 2;
+    /* flex child properties*/
+    /*background-color: red;*/
+    width: 30em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* flex parent properties*/
+}
+
+#lhs {
+    flex: 1;
+    order: 1;
+    /* flex child properties*/
+    display: flex;
+    flex-direction: column;
+    /*flex parent properties*/
+    /*background-color: green*/
+}
+
+#destination {
+    order: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /*background-color: blueviolet;*/
+    border-style: solid;
+    border-width: 1px;
+    border-color: #dadada;
+    padding: 0.5em;
+    margin: 0.5em;
+    min-height: 10em;
+}
+
+#radioButtons {
+    order: 1;
+    /* background-color: salmon;*/
+}
+
+#addDestination {
+    order: 2;
+    flex: 1;
+    /* background-color: bisque;*/
+    text-align: right;
+}
+
+#photoImport {
+    order: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /*background-color: chocolate;*/
+    border-style: solid;
+    border-width: 1px;
+    margin: 0.5em;
+    padding: 0.5em;
+    border-color: #dadada;
+}
+
+#source {
+    order: 1;
+    /*background-color: cornflowerblue;*/
+    border-style: solid;
+    border-width: 1px;
+    margin: 0.5em;
+    padding: 0.5em;
+    border-color: #dadada;
+}
+
+#selectBtn,
+#addDestinationBtn,
+#importBtn,
+#quitBtn {
+    padding: 0.5em;
+    margin: 0.5em;
+    border-style: solid;
+    border-color: #d5d5d5;
+    background-color: #e1e1e1;
+    border-width: 1px;
+    font-size: medium;
+}
+
+#addDestinationBtn,
+#importBtn,
+#quitBtn {
+    width: 6em;
+}
+
+#importBtn,
+#quitBtn {
+    margin-top: 2em;
+}
+
+#renameDiv {
+    order: 1;
+    /*background-color: chartreuse;*/
+}
+
+#importQuit {
+    order: 2;
+    /*background-color: khaki;*/
+}
+
+#thumbnails {
+    order: 2;
+    flex: 1;
+    /*background-color: burlywood;*/
+    border-style: solid;
+    border-width: 1px;
+    border-color: #dadada;
+    margin: 0.5em;
+}
+
+#fieldsetThumbnails {
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+}
+
+#renameDrop {
+    font-size: medium;
+}
+
+#renameText {
+    margin-top: 0.5em;
+}
+
+#status {
+    padding-left: 0.5em;
+    font-size: large;
+}
+
+#statusMessage {
+    font-size: medium;
+}
+
+.thumb {
+    height: 75px;
+    border: 1px solid #000;
+    margin: 10px 5px 0 0;
+}
+
+#progressBar {
+    width: 80%;
+    background-color: #ddd;
+    margin-left: 2em;
+    overflow: hidden; /* hide extra progress bar if last loop goes past 100% (rounding errors) */
+}
+
+#bar {
+    width: 0%;
+    height: 30px;
+    background-color: #4CAF50;
+    text-align:center;
 }
