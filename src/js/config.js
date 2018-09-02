@@ -8,5 +8,6 @@ export const DOM = {
   quitBtn: document.getElementById('quitBtn'), // quit button
   renameDrop: document.getElementById('renameDrop'), // rename drop down
   statusMessage: document.getElementById('statusMessage'), // displayed in footer
-  radioButtons: document.getElementById('radioButtons') // div containing destination radio buttons
+  radioButtons: document.getElementById('radioButtons'), // div containing destination radio buttons
+  thumbsPanel: document.getElementById('thumbnails')
 }
