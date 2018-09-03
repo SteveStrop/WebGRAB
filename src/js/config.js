@@ -8,6 +8,9 @@ export const DOM = {
   quitBtn: document.getElementById('quitBtn'), // quit button
   renameDrop: document.getElementById('renameDrop'), // rename drop down
   statusMessage: document.getElementById('statusMessage'), // displayed in footer
-  radioButtons: document.getElementById('radioButtons'), // div containing destination radio buttons
+  radioPanel: document.getElementById('radioButtons'), // element containing destination radio buttons
   thumbsPanel: document.getElementById('thumbnails')
+}
+export const endpoint = {
+  getDestinations: 'http://localhost:3000/radioDestinations'
 }

@@ -97,6 +97,7 @@ a {
 }
 
 #radioButtons {
+    list-style-type:none;
     order: 1;
     /* background-color: salmon;*/
 }
@@ -174,6 +175,12 @@ a {
     border-color: #dadada;
     margin: 0.5em;
 }
+.thumb {
+    height: 75px;
+    border: 1px solid #000;
+    margin-left: 10px;
+    margin-top: 10px;
+}
 
 #fieldsetThumbnails {
     border-bottom: none;
@@ -198,11 +205,7 @@ a {
     font-size: medium;
 }
 
-.thumb {
-    height: 75px;
-    border: 1px solid #000;
-    margin: 10px 5px 0 0;
-}
+
 
 #progressBar {
     width: 80%;

@@ -1,15 +1,11 @@
 import { DOM } from '../config'
-export const render = (photos) => {
-  console.log(typeof (photos), photos)
-  const arr = Array.from(photos)
-  console.log(arr)
-  arr.forEach(photo => {
-    renderThumb(photo)
-  })
+export const renderThumb = photo => {
+  console.log(photo.name)
+  const markup = `
+<span>
+    <img class="thumb" src="${photo.dataURL}" title="${photo.name}"/>
+</span>
+`
+  DOM.thumbsPanel.insertAdjacentHTML('beforeend', markup)
 }
-const renderThumb = (photo) => {
-  console.log(photo)
-  const span = document.createElement('span')
-  span.innerHTML = `<img class="thumb" src="' + img + '" title="' + imgName + '"/>`
-  DOM.thumbsPanel.insertBefore(span, null)
-}
+export const clearThumb = () => { DOM.thumbsPanel.innerHTML = '' }

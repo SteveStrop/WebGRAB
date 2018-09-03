@@ -3,12 +3,10 @@ export default class Photos {
     this.photos = []
   }
   async getPhoto (photo) {
-    // console.log(photo)
     // initialise file reader
     try {
       // await photo read
       const dataURL = await readPhoto(photo)
-      // console.log(`File reader result is ${p}`) // eslint-disable-line
       // save the photo
       const newPhoto = {
         name: photo.name,
