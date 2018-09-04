@@ -21,8 +21,10 @@ DOM.hideSelPhotoBtn.addEventListener('change', async () => {
   state.download.setReady(state.photos.renderComplete, state.destinations.currentFolder)
 })
 // Edit List event listener
-DOM.editListBtn.addEventListener('click', () => DOM.hideEditListBtn.click()) // dummy
-DOM.editListBtn.addEventListener('focus', () => state.destinations.addFolder())
+DOM.editListBtn.addEventListener('click', () => { DOM.hideEditListBtn.click() }) 
+DOM.editListBtn.addEventListener('focus', () => {
+  state.destinations.addFolder()
+})
 
 // Destination radio event listener
 DOM.radioPanel.addEventListener('click', () => {
