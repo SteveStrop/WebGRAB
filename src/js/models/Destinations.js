@@ -6,12 +6,28 @@ export default class Destinations {
     const data = await stream.json()
     this.folders = JSON.parse(data)
   }
-  editList () {
+  getCurrentFolder () {
+    // find selected destination folder
+    for (const radioBtn of DOM.destRads) {
+      if (radioBtn.checked) {
+        this.currentFolder = radioBtn.value
+        return this.currentFolder
+      }
+    }
+    this.currentFolder = ''
+    return this.currentFolder
   }
-  render (folders) {
+  addFolder () {
+    console.log(`edit list function`)
+    DOM.editListBtn.blur()
+    const newFolder = `1000000000KA ${window.prompt('Enter new folder name: ')}…`
+    if (newFolder) this.folders.push(newFolder)
+    this.renderFolders(this.folders)
+  }
+  renderFolders (folders) {
+    clearPanel()
     folders.forEach(folder => renderFolder(folder))
   }
-  clearPanel () {}
 }
 const renderFolder = folder => {
   const markup = `
@@ -24,3 +40,4 @@ const renderFolder = folder => {
   DOM.radioPanel.insertAdjacentHTML('beforeend', markup)
 }
 const trimName = folder => folder.slice(folder.startsWith('1000') ? 12 : 8)
+const clearPanel = () => { DOM.radioPanel.innerHTML = '' }

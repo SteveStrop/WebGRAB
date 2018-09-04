@@ -1,16 +1,20 @@
-export const DOM = {
-  hiddenSelectPhotosBtn: document.getElementById('chooseFileBtn'), // hidden file input button
-  selectPhotosBtn: document.getElementById('selectBtn'), // select photo button
-  editListBtn: document.getElementById('addDestinationBtn'), // add destination button
-  hiddenEditListBtn: document.getElementById('setDestBtn'), // hidden file input button used to add new destination
-  importBtn: document.getElementById('importBtn'), // import button
 
+export const DOM = {
+  hideSelPhotoBtn: document.getElementById('chooseFileBtn'), // hidden file input button
+  selPhotoBtn: document.getElementById('selectBtn'), // select photo button
+  editListBtn: document.getElementById('addDestinationBtn'), // add destination button
+  hideEditListBtn: document.getElementById('setDestBtn'), // hidden file input button used to add new destination
+  importBtn: document.getElementById('importBtn'), // import button
   quitBtn: document.getElementById('quitBtn'), // quit button
   renameDrop: document.getElementById('renameDrop'), // rename drop down
   statusMessage: document.getElementById('statusMessage'), // displayed in footer
   radioPanel: document.getElementById('radioButtons'), // element containing destination radio buttons
-  thumbsPanel: document.getElementById('thumbnails')
+  thumbsPanel: document.getElementById('thumbnails'), // thumbnails div
+  destRads: document.getElementsByName('destRads') // destination radio buttons collection
 }
 export const endpoint = {
-  getDestinations: 'http://localhost:3000/radioDestinations'
+  getDestinations: 'http://localhost:3000/radioDestinations', // the API get folders endpoint
+  saveFiles: 'http://localhost:3000/post' // the API save endpoint
 }
+export const parentFolder = 'G:/Estate Agents' // root folder for downloaded photos or camera location hopefully
+window.DOM = DOM
