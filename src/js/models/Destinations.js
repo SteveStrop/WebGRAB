@@ -17,21 +17,13 @@ export default class Destinations {
     this.currentFolder = ''
     return this.currentFolder
   }
-  addFolderOld () {
-    console.log(`edit list function`)
-    DOM.editListBtn.blur()
-    const newFolder = `1000000000KA ${window.prompt('Enter new folder name: ')}…`
-    if (newFolder) this.folders.push(newFolder)
+  async addFolder () {
+    await this.getDestinations()
     this.renderFolders(this.folders)
-  }
-  addFolder() {
-    console.log ('adding folder')
-    this.getDestinations()
-    this.renderFolders()
     // probably just need to update destinations panel
   }
   renderFolders (folders) {
-    if(!folders) return
+    if (!folders) return
     clearPanel()
     folders.forEach(folder => renderFolder(folder))
   }
