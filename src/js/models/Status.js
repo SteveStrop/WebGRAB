@@ -10,8 +10,8 @@ export default class Status {
   }
   updateStatusMessage (state) {
     /*
-   |* returns message associated with FIRST true condition
-   */
+    |* returns message associated with FIRST true condition
+    */
     // create message conditions and strings [condition,message]
     const messages = [
       [DOM.importBtn.disabled && !state.photos.renderComplete, 'Select photos'],
