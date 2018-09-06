@@ -3,6 +3,9 @@
 
 import { DOM, parentFolder, endpoint } from '../config'
 export default class Import {
+  constructor () {
+    this.importComplete = false
+  }
   import (state) {
     /*
     |* create or update new photo names and then save them to local destination folder

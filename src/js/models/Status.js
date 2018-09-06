@@ -17,6 +17,7 @@ export default class Status {
     |* returns message associated with FIRST true condition
     */
     // create message conditions and strings [condition,message]
+    // console.log(state)
     const messages = [
       [state.import.importComplete, 'Photos imported'],
       [DOM.importBtn.disabled && !state.photos.renderComplete, 'Select photos'],
@@ -24,6 +25,7 @@ export default class Status {
       [state.destinations.currentFolder, 'Ready to import (renamed) photos']
     ]
     for (const [condition, message] of messages) {
+      // console.log(condition, message)
       if (condition) {
         // display corresponding message
         DOM.statusMessage.innerText = message
