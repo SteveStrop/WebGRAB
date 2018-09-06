@@ -6,7 +6,7 @@ export const DOM = {
   hideEditListBtn: document.getElementById('setDestBtn'), // hidden file input button used to add new destination
   importBtn: document.getElementById('importBtn'), // import button
   quitBtn: document.getElementById('quitBtn'), // quit button
-  renameDrop: document.getElementById('renameDrop'), // rename drop down
+  renameDropDown: document.getElementById('renameDropDown'), // rename drop down
   progressBar: document.getElementById('progressBar'),
   bar: document.getElementById('bar'),
   statusMessage: document.getElementById('statusMessage'), // displayed in footer
@@ -20,3 +20,9 @@ export const endpoint = {
 }
 export const parentFolder = 'G:/Estate Agents' // root folder for downloaded photos or camera location hopefully
 window.DOM = DOM
+export const folderTrim = {
+  keyAgentIdentifier: '1000',
+  keyAgentTrim: 12,
+  HsIdentifier: 'HSS',
+  HsTrim: 8
+}
