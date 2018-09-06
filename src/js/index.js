@@ -17,6 +17,7 @@ const state = {}
 window.addEventListener('load', () => init(state))
 // Select Button event listener
 DOM.selPhotoBtn.addEventListener('click', () => {
+  state.photos.clearThumbs()
   state.status.showProgressBar(false)
   DOM.hideSelPhotoBtn.click() // dummy
 })
@@ -32,6 +33,7 @@ DOM.editListBtn.addEventListener('click', () => DOM.hideEditListBtn.click())
 DOM.editListBtn.addEventListener('focus', () => state.destinations.addFolder())
 // Destination radio event listener
 DOM.radioPanel.addEventListener('click', () => {
+  state.status.showProgressBar(false)
   state.destinations.getCurrentFolder()
   state.import.enableImportBtn(state.photos.renderComplete, state.destinations.currentFolder) // enabled if both true
   state.status.updateStatusMessage(state)

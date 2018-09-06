@@ -7,8 +7,8 @@ export const DOM = {
   importBtn: document.getElementById('importBtn'), // import button
   quitBtn: document.getElementById('quitBtn'), // quit button
   renameDropDown: document.getElementById('renameDropDown'), // rename drop down
-  progressBar: document.getElementById('progressBar'),
-  bar: document.getElementById('bar'),
+  progressBar: document.getElementById('progressBar'), // progress bar containing div
+  bar: document.getElementById('bar'), // expanding progress bar
   statusMessage: document.getElementById('statusMessage'), // displayed in footer
   radioPanel: document.getElementById('radioButtons'), // element containing destination radio buttons
   thumbsPanel: document.getElementById('thumbnails'), // thumbnails div
@@ -19,10 +19,10 @@ export const endpoint = {
   saveFiles: 'http://localhost:3000/post' // the API save endpoint
 }
 export const parentFolder = 'G:/Estate Agents' // root folder for downloaded photos or camera location hopefully
-window.DOM = DOM
-export const folderTrim = {
+export const folderTrim = { // parameters for trimming folder name to fit destinations panel
   keyAgentIdentifier: '1000',
   keyAgentTrim: 12,
   HsIdentifier: 'HSS',
   HsTrim: 8
 }
+window.D = DOM

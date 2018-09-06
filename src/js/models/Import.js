@@ -1,11 +1,18 @@
+// TODO: run progress bar for import
+// TODO:" update status once photos uploaded
+
 import { DOM, parentFolder, endpoint } from '../config'
 export default class Import {
   import (state) {
     /*
     |* create or update new photo names and then save them to local destination folder
     */
+    // display progress bar
+    state.status.initProgress()
+    // rename files with value from drop down selector
     renameFiles(state.photos.photos, DOM.renameDropDown.value)
-    saveFiles(state.photos.photos, state.destinations.currentFolder)
+    // save files to local folder
+    saveFiles(state)
   }
   enableImportBtn (renderStatus, currentFolder) {
     DOM.importBtn.disabled = !(renderStatus && currentFolder)
@@ -13,6 +20,9 @@ export default class Import {
   quit () { window.close() }
 }
 const renameFiles = (fileList, reNumType) => {
+  /*
+  |* renames files according to value of dropDownRename select button
+  */
   if (reNumType === '0') {
     clearRenames(fileList) // if rename type is Do not rename clear any previous rename values and return
     return
@@ -35,13 +45,18 @@ const clearRenames = fileList => {
     }
   })
 }
-const saveFiles = (fileList, destination) => {
-  fileList.forEach(photo => {
+const saveFiles = (state) => {
+  /*
+  |* sends requests to server to save photos locally
+  */
+  state.import.importComplete = false
+  let chunk = 1 // progress bar is divided into chunks equal to fileList.Length. This sets the first one
+  state.photos.photos.forEach(photo => {
     // create data object to upload to server
     const data = {
       file: photo.dataURL,
       name: photo.rename ? photo.rename : photo.name,
-      folder: `${parentFolder}/${destination}/`
+      folder: `${parentFolder}/${state.destinations.currentFolder}/`
     }
     // create request for server
     const request = new Request(endpoint.saveFiles, { // eslint-disable-line 
@@ -54,8 +69,11 @@ const saveFiles = (fileList, destination) => {
     // send data to server TODO: change this to async await
     fetch(request) // eslint-disable-line 
       .then((resp) => resp.json())
+      .then(() => { state.status.renderProgress(chunk++, state.photos.photos.length) })
       .catch(function (error) {
         console.log(error.name)
       })
   })
+  state.import.importComplete = true
+  state.status.updateStatusMessage(state)
 }
