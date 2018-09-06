@@ -4,14 +4,18 @@ export default class Photos {
     this.photos = []
     this.renderComplete = false
   }
-  // download & display photos from source
   async loadPhotos (state, fileList) {
-    if (!fileList) return
-    state.status.renderProgress(0)
-    state.status.showProgressBar(true)
+    /*
+    |*controller to get photos from central store to local folders
+    */
+    if (!fileList) return // do nothing if no photos
+    // initialise
     this.renderComplete = false
     this.photos = []
-    // clear display
+    // display progress bar
+    state.status.renderProgress(0)
+    state.status.showProgressBar(true)
+    // clear thumbnail panel
     this.clearThumbs()
     // process the photos
     let index = 1
