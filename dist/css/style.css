@@ -81,7 +81,6 @@ a {
     /*flex parent properties*/
     /*background-color: green*/
 }
-
 #destination {
     order: 1;
     display: flex;
@@ -95,20 +94,17 @@ a {
     margin: 0.5em;
     min-height: 10em;
 }
-
 #radioButtons {
     list-style-type:none;
     order: 1;
     /* background-color: salmon;*/
 }
-
 #addDestination {
     order: 2;
     flex: 1;
     /* background-color: bisque;*/
     text-align: right;
 }
-
 #photoImport {
     order: 2;
     display: flex;
@@ -121,7 +117,6 @@ a {
     padding: 0.5em;
     border-color: #dadada;
 }
-
 #source {
     order: 1;
     /*background-color: cornflowerblue;*/
@@ -131,7 +126,6 @@ a {
     padding: 0.5em;
     border-color: #dadada;
 }
-
 #selectBtn,
 #addDestinationBtn,
 #importBtn,
@@ -144,28 +138,23 @@ a {
     border-width: 1px;
     font-size: medium;
 }
-
 #addDestinationBtn,
 #importBtn,
 #quitBtn {
     width: 6em;
 }
-
 #importBtn,
 #quitBtn {
     margin-top: 2em;
 }
-
 #renameDiv {
     order: 1;
     /*background-color: chartreuse;*/
 }
-
 #importQuit {
     order: 2;
     /*background-color: khaki;*/
 }
-
 #thumbnails {
     order: 2;
     flex: 1;
@@ -181,42 +170,41 @@ a {
     margin-left: 10px;
     margin-top: 10px;
 }
-
 #fieldsetThumbnails {
     border-bottom: none;
     border-left: none;
     border-right: none;
 }
-
 #renameDrop {
     font-size: medium;
 }
-
 #renameText {
     margin-top: 0.5em;
 }
-
 #status {
     padding-left: 0.5em;
     font-size: large;
 }
-
 #statusMessage {
     font-size: medium;
 }
-
-
-
 #progressBar {
     width: 80%;
     background-color: #ddd;
     margin-left: 2em;
     overflow: hidden; /* hide extra progress bar if last loop goes past 100% (rounding errors) */
 }
-
 #bar {
     width: 0%;
     height: 30px;
     background-color: #4CAF50;
     text-align:center;
 }
+    /* animation-name: progress;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+}
+@keyframes progress {
+    100% {width:100%}
+}
+*/

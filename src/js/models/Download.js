@@ -4,6 +4,7 @@ export default class Download {
     renameFiles(state.photos.photos, DOM.renameDrop.value)
     saveFiles(state.photos.photos, state.destinations.currentFolder)
   }
+
   setReady (renderStatus, currentFolder) {
     DOM.importBtn.disabled = !(renderStatus && currentFolder)
   }

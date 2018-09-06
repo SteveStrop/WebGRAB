@@ -7,6 +7,8 @@ export const DOM = {
   importBtn: document.getElementById('importBtn'), // import button
   quitBtn: document.getElementById('quitBtn'), // quit button
   renameDrop: document.getElementById('renameDrop'), // rename drop down
+  progressBar: document.getElementById('progressBar'),
+  bar: document.getElementById('bar'),
   statusMessage: document.getElementById('statusMessage'), // displayed in footer
   radioPanel: document.getElementById('radioButtons'), // element containing destination radio buttons
   thumbsPanel: document.getElementById('thumbnails'), // thumbnails div
