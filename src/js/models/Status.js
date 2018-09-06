@@ -12,38 +12,33 @@ export default class Status {
     DOM.statusMessage.innerText = getStatus(state)
   }
 }
-const getStatus2 = state => {
-  // create message strings
-  const messages = {
-    notRenderComplete: 'Select photos',
-    notDestination: 'Choose destination folder',
-    importEnabled: 'Import (renamed) photos'
-  }
-  // create selection criteria
-  if (!DOM.importBtn.disabled) return messages.importEnabled
-  if (!state.photos.renderComplete) return messages.notRenderComplete
-  if (!state.destinations.currentFolder) return messages.notDestination
-}
-
 const getStatus = state => {
   /*
-  |* returns message associated with FIRST true criteria
+  |* returns message associated with FIRST true condition
   */
-  // create message strings
+  // create message conditions and strings [index,[condition,message]]
   const messages = new Map([
-    [1, 'Select photos'],
-    [2, 'Choose destination folder'],
-    [3, 'Import (renamed) photos']
+    [0,
+      [DOM.importBtn.disabled && !state.photos.renderComplete, 'Select photos']
+    ],
+    [1,
+      [state.photos.renderComplete && !state.destinations.currentFolder, 'Choose destination folder']
+    ],
+    [2,
+      [state.destinations.currentFolder, 'Ready to import (renamed) photos']
+    ]
   ])
+  window.m = messages
   // create selection criteria MUST map 1 for 1 with message string above
-  const criteria = new Map([
-    [1, !DOM.importBtn.disabled],
-    [2, !state.photos.renderComplete],
-    [3, !state.destinations.currentFolder]
+  /* const criteria = new Map([
+    [0, DOM.importBtn.disabled && !state.photos.renderComplete],
+    [1, state.photos.renderComplete && !state.destinations.currentFolder],
+    [2, state.destinations.currentFolder]
   ])
-  for (let i = 0; i < criteria.size; i++) {
-    if (criteria.get(i)) { // if true
-      return messages.get(i) // return corresponding message
-    }
+  */
+  for (const value of messages.values()) {
+    const condition = value[0]
+    const message = value[1]
+    if (condition) return message // return corresponding message
   }
 }

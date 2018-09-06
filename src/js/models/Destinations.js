@@ -52,8 +52,6 @@ const trimName = folder => {
   /*
   |* trim length of folder to fit destinations panel
   */
-  console.log(folder)
-
   return folder.slice(folder.startsWith(folderTrim.keyAgentIdentifier) ? folderTrim.keyAgentTrim : folderTrim.HsTrim) // trim 12 chars if a key agent type folder name 8 otherwise
 }
 const clearPanel = () => { DOM.radioPanel.innerHTML = '' }

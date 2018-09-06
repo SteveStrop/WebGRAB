@@ -181,11 +181,8 @@ a {
 #renameText {
     margin-top: 0.5em;
 }
-#status {
-    padding-left: 0.5em;
-    font-size: large;
-}
 #statusMessage {
+    padding-left: 0.5em;
     font-size: medium;
 }
 #progressBar {
