@@ -22,6 +22,7 @@ export default class Destinations {
     this.currentFolder = '' // no folder selected
     return this.currentFolder
   }
+
   async addFolder () {
     /*
     |* update list of destination folders called after edit button clicked
